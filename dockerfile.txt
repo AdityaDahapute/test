@@ -5,7 +5,7 @@ LABEL author="aditya"
 RUN apt-get update && \
     apt-get install apache2 unzip -y
 
-ADD https://templatemo.com/download/templatemo_606_string_master /var/www/html/
+ADD https://templatemo.com/download/templatemo_606_string_master /var/www/html/templatemo_606_string_master.zip
 
 RUN rm -rf /var/www/html/index.html && \
     unzip /var/www/html/templatemo_606_string_master.zip -d /var/www/html/ && \
