@@ -1,0 +1,10 @@
+apiversion: v1
+metadata:
+  name: podbyyml
+kind: Pod
+spec:
+  containers:
+    -name: nginx-container
+    -image: nginx-latest
+    -ports:
+      -containerPort: 80
