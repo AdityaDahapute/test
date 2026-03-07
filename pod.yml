@@ -8,3 +8,6 @@ spec:
     -image: nginx-latest
     -ports:
       -containerPort: 80
+
+      #ths is to do chenges
+      #and check git only
