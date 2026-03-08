@@ -4,10 +4,9 @@ metadata:
 kind: Pod
 spec:
   containers:
-    -name: nginx-container
-    -image: nginx-latest
-    -ports:
-      -containerPort: 80
-
-      #ths is to do chenges
-      #and check git only
+  - name: nginx-contai
+    image: nginx-latest
+    ports:
+    - containerPort: 80
+    #ths is to do chenges
+    #and check git only
