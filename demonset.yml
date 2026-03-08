@@ -6,7 +6,8 @@ metadata:
 kind: DaemonSet
 spec:
   selector:
-    app: daemonset
+    matchLabels:
+      app: daemonset
   template:
     metadata:
       name: cloudwatch-pod
