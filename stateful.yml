@@ -18,7 +18,9 @@ spec:
       containers:
       - name: ssdb
         image: mysql:latest
-        ports: 3306
+        ports:
+        - containerPort: 3306
+          protocol: TCP
       env:
       - name: MYSQL_ROOT_PASSWORD
         value: "123456"
