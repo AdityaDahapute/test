@@ -24,6 +24,6 @@ spec:
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
-            configMapRef:
+            configMapKeyRef:
               name: configfile
               key: root_pw
