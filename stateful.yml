@@ -24,7 +24,7 @@ spec:
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueForm:
-            secretkeyref:
+            secretKeyRef:
               name: mysql-secret #the name of the metadata in secretfile nedd to match so they can understand where the password is
               key: root_pw
           #value: "123456"

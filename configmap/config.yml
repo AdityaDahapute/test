@@ -1,0 +1,8 @@
+apiVersion:
+kind:
+maetdata:
+  name: configfile
+  labels:
+    app: configapp
+data:
+  root_pw: "123456789"
