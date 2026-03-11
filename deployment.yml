@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+metadata:
+  name: my-deployment
+  labels:
+    app: my-app
+kind: Deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: my-app
+  strategy:
+    typle: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx #change it to http to roll the pods to make apacehe pods to demonstrate deployment strat rollingupdate
+        ports:
+          containerPort: 80
