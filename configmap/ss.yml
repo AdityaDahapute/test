@@ -16,14 +16,14 @@ spec:
         app: ssdb2
     spec:
       containers:
-      - name: ssdb2
+      - name: ssdbcont2
         image: mysql:latest
         ports:
         - containerPort: 3306
           protocol: TCP
         env:
         - name: MYSQL_ROOT_PASSWORD
-          valueForm:
+          valueFrom:
             configMapRef:
               name: configfile
               key: root_pw
