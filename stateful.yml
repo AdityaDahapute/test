@@ -23,4 +23,10 @@ spec:
           protocol: TCP
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: "123456"
+          valueForm:
+            secretkeyref:
+              name: mysql-secret #the name of the metadata in secretfile nedd to match so they can understand where the password is
+              key: root_pw
+          #value: "123456"
+
+          #we have written a  secret yml file to hide the password for the mysql database
