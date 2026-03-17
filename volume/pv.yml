@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-volume
+  labels:
+    app: pv-volume
+spec:
+  accessModes: -ReadWriteOnce
+  capacity:
+    storage: 15Gi
+  storageCLassName: standard
+  persistentVolumeClaimPolicy: Retain
+  hostPath: /mnt/data/nginxvol1
