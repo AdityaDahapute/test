@@ -12,7 +12,7 @@ spec:
   containers:
   - name: nginxcont
     image: nginx
-    volumemounts:
+    volumeMounts:
     - name: nginxvol
       mountPath: "/share/local/nginx/"
     ports:
