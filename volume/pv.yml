@@ -5,7 +5,8 @@ metadata:
   labels:
     app: pv-volume
 spec:
-  accessModes: ReadWriteOnce # data can be read/written by single node
+  accessModes:
+  - ReadWriteOnce # data can be read/written by single node
   capacity:
     # amouint of storage pc can alot from ectenal volumes/ebs
     storage: 15Gi
