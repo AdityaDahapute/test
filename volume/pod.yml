@@ -16,5 +16,5 @@ spec:
     - name: nginxvol
       mountPath: "/share/local/nginx/"
     ports:
-    - conatinerPort: 80
+    - containerPort: 80
       protocol: TCP

@@ -10,7 +10,7 @@ spec:
   capacity:
     # amouint of storage pc can alot from ectenal volumes/ebs
     storage: 15Gi
-  storageCLassName: standard # matches with pvc and depends on the type of ecternal volume]
+  storageClassName: standard # matches with pvc and depends on the type of ecternal volume]
   volumeMode: Filesystem # since ebs is used we use this volume mode
   persistentVolumeClaimPolicy: Retain # data will retained even after pv is deleted
   hostPath:
