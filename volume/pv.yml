@@ -12,7 +12,7 @@ spec:
     storage: 15Gi
   storageClassName: standard # matches with pvc and depends on the type of ecternal volume]
   volumeMode: Filesystem # since ebs is used we use this volume mode
-  persistentVolumeReClaimPolicy: Retain # data will retained even after pv is deleted
+  persistentVolumeReclaimPolicy: Retain # data will retained even after pv is deleted
   hostPath:
     path: /mnt/data/nginxvol1
 
