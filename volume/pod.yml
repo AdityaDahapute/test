@@ -3,7 +3,7 @@ metadata:
   name: my-pod
   labels:
     app: myapp
-kind: pod
+kind: Pod
 spec:
   volumes:
   - name: nginxvol
