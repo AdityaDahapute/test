@@ -24,4 +24,4 @@ spec:
       - name: nginx-container
         image: nginx #change it to http to roll the pods to make apacehe pods to demonstrate deployment strat rollingupdate
         ports:
-          containerPort: 80
+        - containerPort: 80
