@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: my-app
   strategy:
-    typle: RollingUpdate
+    type: RollingUpdate
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
