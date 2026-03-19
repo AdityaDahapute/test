@@ -40,7 +40,7 @@ metadata:
   labels:
     app: my-app
 spec:
-  scalerTargetRef:
+  scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: my-deployment
