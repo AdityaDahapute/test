@@ -25,11 +25,11 @@ spec:
         image: tomcat:latest #change it to http to roll the pods to make apacehe pods to demonstrate deployment strat rollingupdate
         resources:
           requests:
-            cpu: "1000m"
-            memory: "512Mi" # vertical autoscaing minimum resources
+            cpu: "125m"
+            memory: "64Mi" # vertical autoscaing minimum resources
           limits:
-            cpu: "2000m"
-            memory: "1024Mi" # vertical autoscaling maximum resources
+            cpu: "128m"
+            memory: "70Mi" # vertical autoscaling maximum resources
         ports:
         - containerPort: 8080
 ---
