@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+metadata:
+  name: my-tomcatdeployment
+  labels:
+    app: my-tomcatapp
+kind: Deployment
+spec:
+  replicas: 1 #desired state 
+  selector:
+    matchLabels:
+      app: my-tomcatapp
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        app: my-tomcatapp
+    spec:
+      containers:
+      - name: tomcat-container
+        image: tomcat:latest #change it to http to roll the pods to make apacehe pods to demonstrate deployment strat rollingupdate
+        resources:
+          requests:
+            cpu: "1000m"
+            memory: "512Mi" # vertical autoscaing minimum resources
+          limits:
+            cpu: "2000m"
+            memory: "1024Mi" # vertical autoscaling maximum resources
+        ports:
+        - containerPort: 8080
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: my-tomcathpa
+  labels:
+    app: my-tomcatapp
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: my-tomcatdeployment
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 10 # horizontal autosacaling based on cpu utilization 
