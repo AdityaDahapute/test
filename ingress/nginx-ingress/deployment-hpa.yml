@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+metadata:
+  name: my-nginxdeployment
+  labels:
+    app: my-nginxapp
+kind: Deployment
+spec:
+  replicas: 1 #desired state 
+  selector:
+    matchLabels:
+      app: my-nginxapp
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        app: my-nginxapp
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:latest #change it to http to roll the pods to make apacehe pods to demonstrate deployment strat rollingupdate
+        resources:
+          requests:
+            cpu: "1000m"
+            memory: "512Mi" # vertical autoscaing minimum resources
+          limits:
+            cpu: "2000m"
+            memory: "1024Mi" # vertical autoscaling maximum resources
+        ports:
+        - containerPort: 80
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: my-nginxhpa
+  labels:
+    app: my-nginxapp
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: my-nginxdeployment
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 10 # horizontal autosacaling based on cpu utilization 
