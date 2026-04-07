@@ -24,14 +24,14 @@ resource "aws_security_group" " webserversg"{
         from_port = 8080
         to_port = 8080
         protocol = "-1" # -1 denotes we need to implement all traffic protocols 
-        cidr_block = ["0.0.0.0/0"]
+        cidr_blocks = ["0.0.0.0/0"]
     }
 
     ingress {  #inbound traffic 
         from_port = 8080
         to_port = 8080
         protocol = "-1" # -1 denotes we need to implement all traffic protocols 
-        cidr_block = ["0.0.0.0/0"]
+        cidr_blocks = ["0.0.0.0/0"]
     }
 }
 
