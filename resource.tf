@@ -4,7 +4,7 @@ resource "aws_instance" "webserver" {
     instance_type = var.instancetype  #use the free tier instancetype
     vpc_security_groups_ids = [var.securitysg  , aws_security_group.webserversg.id, data.aws_security_group_sg_gui.id]  # when using security groups jsut using the security grp of vpc hwere u want the instane to be in, u cant attach security groups of two different VPCs // when we want ot attach the security group its called refrencing
     key_name = var.key # key as in the key pairs 
-    count = var.instance_count # 2 copies get created of the same instance 
+    #count = var.instance_count # 2 copies get created of the same instance // whenn using output block it cannot get output of 2 instance at a time loop is required to manipulate data 
     disable _api_termination = var.api_termination
     tags = {
         Name = "hello worlds"
