@@ -7,3 +7,6 @@ variable "vpc_subnetA"{
 variable "public_ip"{
     
 }
+variable "az"{
+    
+}
